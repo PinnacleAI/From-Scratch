@@ -3,7 +3,7 @@ def train_test_split(*arrays, test_size=None, train_size=None, random_state=None
     
     ###### PERFORM A SERIES OF VALIDATION ON THE PASSED ARGUMENTS #######
     
-    # TODO: Reduce the function to half it size  {'Difficult_lvl': Expert}
+    # TODO: Reduce the function to half its size  {'Difficult_lvl': Expert}
     
     
     # 1ST VALIDATION
