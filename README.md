@@ -1,5 +1,5 @@
 # From-Scratch
-<h1>Do you have what it takes to implement that module you love using from scratch? Give it a try and make sure you meet the below criteria</h2>
+<h3>Do you have what it takes to implement that module you love using from scratch? Give it a try and make sure you meet the below criteria</h3>
 
 
 <ul>
