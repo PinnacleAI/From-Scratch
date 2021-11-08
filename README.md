@@ -3,7 +3,7 @@
 
 
 <ul>
-    <li>Ensure that your version implements at least 80% of the original version functionality</li>
+    <li>Ensure that your version implements at least 80% of the source functionality</li>
     <li>Make your code as efficient as you can possibly make it, and learn as you watch others make it more efficient than you can!</li>
     <li>Do not use any functionality from the module you are trying to implement from </li>
 </ul>
@@ -11,9 +11,8 @@
 <h3>Here is how it works?</h3>
 <ol>
     <li>
-        Upload your implementation of an existing module that you think you are capable of implementing. 
-        Note: it can be anything e.g it can be something as simple as np.mean or as complex as a sklearn.LogisticRegression
-        or Neural Network if you are daring. This is to ensure everyone on any skill level can participate
+        Upload your implementation of an existing module that you think you are capable of implementing. Note: it can be anything e.g it can be something as simple as np.mean or as complex as a sklearn.LogisticRegression or Neural Network if you are daring. This is to ensure everyone on any skill level can participate
+
     </li>
     <li>
         Provide a short description of the function you are implementing and state
@@ -37,8 +36,8 @@
 <h3>How to contribute to existing custom implementation</h3>
 <ul>
     <li>
-        If you see an implementation you think you can improve on without breaking the code, go right ahead and
-        create a pull request! (even if it is a typo or grammatical error!)
+        If you see an implementation you think you can improve on without breaking the code, go right ahead and create a pull request! (even if it is a typo or grammatical error!)
+
     </li>
     <li>
         Try as you can to see if you can detect a bug in an existing implementation and hurry to create an issue! 
@@ -49,13 +48,12 @@
 <h3>NOTE</h3>
 <ul>
     <li>
-         Only the author of the custom implementation will be made contributors, so that they can handle
-         requests and solve issues made on their implementation and other authors implementations they think
-         they are capable of handling. So go on and implement something!
+         Only the author of the custom implementation will be made contributors so that they can handle requests and solve issues made on their implementation and other authors implementations they think they are capable of handling. So go on and implement something!
+
     </li>
 </ul>
 
-<h3>Benefit of Participating and becoming a contributor</h3>
+<h3>The benefit of Participating and becoming a contributor</h3>
 <ul>
     <li>Learn how to work and collaborate on Github</li>
     <li>Gain a deeper understanding of your favorite module and an even deeper appreciation of the developers</li>
@@ -66,9 +64,9 @@
 <hr></hr>
 
 <p>
-    A special thanks to <a href="https://www.linkedin.com/in/sgodaibo/" target="_blank">Mr. Stephen Odaibo</a> founder of RETINA-AI for his 
+    A special thanks to <a href="https://www.linkedin.com/in/sgodaibo/" target="_blank">Mr Stephen Odaibo</a> founder of RETINA-AI for his 
     daring us to achieve, to push ourself beyond our limit and <a href="https://www.linkedin.com/in/kris-sankaran-01956b17/" target="_blank">Prof. Kris Sankaran</a>
-    Porfessor of Statistics at University of Wisconsis-Madison for making the intricacies of Machine Learning algorithms plain to our eyes. You made
+    Professor of Statistics at University of Wisconsin-Madison for making the intricacies of Machine Learning algorithms plain to our eyes. You made
     DSN Bootcamp 2021 a truly amazing learning experience. We the finalist of DSN Bootcamp Finalist truly thank you.
 <p>
     
