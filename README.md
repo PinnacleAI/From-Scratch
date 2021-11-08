@@ -36,8 +36,8 @@
 <h3>How to contribute to existing custom implementation</h3>
 <ul>
     <li>
-        If you see an implementation you think you can improve on without breaking the code, go right ahead and create a pull request! (even if it is a typo or grammatical error!)
-
+        If you see an implementation you think you can improve on without breaking the code, go right ahead and create a pull request! 
+        (even if it is a typo or grammatical error!)
     </li>
     <li>
         Try as you can to see if you can detect a bug in an existing implementation and hurry to create an issue! 
@@ -48,8 +48,9 @@
 <h3>NOTE</h3>
 <ul>
     <li>
-         Only the author of the custom implementation will be made contributors so that they can handle requests and solve issues made on their implementation and other authors implementations they think they are capable of handling. So go on and implement something!
-
+        Only the author of the custom implementation will be made contributors so that they can handle requests and solve
+        issues made on their implementation and other authors implementations they think they are capable of handling.
+        So go on and implement something!
     </li>
 </ul>
 
