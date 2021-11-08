@@ -20,17 +20,18 @@
         the original source
     </li>
     <li>
-        State the limitation of your version against the original version i.e what functionality that is in the 
+        State the limitation of your implementation against the original implementation i.e what functionality that is in the 
         original implementation that you are unable to implement
     </li>
     <li>
         if possible in your code, leave tasks that other programmers below your skill levels can try to tackle.
-        e.g converting a for loop to list comprehension, finding a way to remove duplicate codes etc.
+        e.g converting a for loop to list comprehension, finding a way to remove duplicate codes etc. Enables a gradual learning curve
     </li>
     <li>
-        Try as much as possible to contain your implementation in a single file. If not possible, all the file
+        Try as much as possible to contain your implementation in a single file. If not possible, all the files
         should be contained in a single folder and the name of the folder should be the name of the implementation.
     </li>
+    <li><b>Comment your code!!!</b></li>
 </ol>
 
 <h3>How to contribute to existing custom implementation</h3>
@@ -49,7 +50,7 @@
 <ul>
     <li>
          Only the author of the custom implementation will be made contributors, so that they can handle
-         requests or solve issues made on their implementation and other authors implementations they think
+         requests and solve issues made on their implementation and other authors implementations they think
          they are capable of handling. So go on and implement something!
     </li>
 </ul>
@@ -65,8 +66,13 @@
 <br></br>
 <hr></hr>
 
-<p>A special thanks to <a href="https://www.linkedin.com/in/sgodaibo/">Mr. Stephen Odaibo</a> founder of RETINA-AI for his 
-daring us to achieve, to push ourself beyond our limit and <a href="https://www.linkedin.com/in/kris-sankaran-01956b17/">Prof. Kris Sankaran</a>
-Porfessor of Statistics at University of Wisconsis-Madison for making the intricacies of Machine Learning algorithms plain to our eyes. You made
-DSN Bootcamp 2021 a truly amazing learning experience. We the finalist of DSN Bootcamp Finalist truly thank you.
 <p>
+    A special thanks to <a href="https://www.linkedin.com/in/sgodaibo/">Mr. Stephen Odaibo</a> founder of RETINA-AI for his 
+    daring us to achieve, to push ourself beyond our limit and <a href="https://www.linkedin.com/in/kris-sankaran-01956b17/">Prof. Kris Sankaran</a>
+    Porfessor of Statistics at University of Wisconsis-Madison for making the intricacies of Machine Learning algorithms plain to our eyes. You made
+    DSN Bootcamp 2021 a truly amazing learning experience. We the finalist of DSN Bootcamp Finalist truly thank you.
+<p>
+    
+<p>Add your appreciation for these amazing teachers below <b>(Only for contributors!</b></p>
+    
+ 
