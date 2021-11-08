@@ -11,8 +11,8 @@
 <h3>Here is how it works?</h3>
 <ol>
     <li>
-        Upload your implementation of an existing module that you think you are capable of implementing. Note: it can be anything e.g it can be something as simple as np.mean or as complex as a sklearn.LogisticRegression or Neural Network if you are daring. This is to ensure everyone on any skill level can participate
-
+        Upload your implementation of an existing module that you think you are capable of implementing. Note: it can be anything e.g it can be something as 
+        simple as np.mean or as complex as a sklearn.LogisticRegression or Neural Network if you are daring. This is to ensure everyone on any skill level can participate
     </li>
     <li>
         Provide a short description of the function you are implementing and state
