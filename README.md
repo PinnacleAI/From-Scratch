@@ -5,7 +5,7 @@
 <ul>
     <li>Ensure that your own version implements at least 80% of the original version functionality</li>
     <li>Make your code as efficient as you can possibly make it, and learn as you watch others make it more efficient than you can!</li>
-    <li>Do not use any functionality from the module you are trying to copy an implementation</li>
+    <li>Do not use any functionality from the module you are trying to implement from </li>
 </ul>
 
 <h3>Here is how it works?</h3>
