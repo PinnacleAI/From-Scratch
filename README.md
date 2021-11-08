@@ -18,7 +18,7 @@
     <li>
         Provide a short description of the function you are implementing and state
         the original source
-    </li>
+   </li>
     <li>
         State the limitation of your implementation against the original implementation i.e what functionality that is in the 
         original implementation that you are unable to implement
@@ -63,7 +63,6 @@
     <li>Build your portfolio</li>
 </ul>
 
-<br></br>
 <hr></hr>
 
 <p>
@@ -75,5 +74,6 @@
     
 <p>Add your appreciation for these amazing teachers below <b>(Only for contributors!</b>)</p>
 <hr></hr>
+
     
  
