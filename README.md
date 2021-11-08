@@ -4,7 +4,7 @@
 
 <ul>
     <li>Ensure that your version implements at least 80% of the source functionality</li>
-    <li>Make your code as efficient as you can possibly make it, and learn as you watch others make it more efficient than you can!</li>
+    <li>Make your code as efficient as you can make it, and learn as you watch others make it more efficient than you can!</li>
     <li>Do not use any functionality from the module you are trying to implement from </li>
 </ul>
 
@@ -56,7 +56,7 @@
 <h3>The benefit of Participating and becoming a contributor</h3>
 <ul>
     <li>Learn how to work and collaborate on Github</li>
-    <li>Gain a deeper understanding of your favorite module and an even deeper appreciation of the developers</li>
+    <li>Gain a deeper understanding of your favourite module and an even deeper appreciation of the developers</li>
     <li>Increase your Python skills</li>
     <li>Build your portfolio</li>
 </ul>
@@ -65,8 +65,8 @@
 
 <p>
     A special thanks to <a href="https://www.linkedin.com/in/sgodaibo/" target="_blank">Mr Stephen Odaibo</a> founder of RETINA-AI for his 
-    daring us to achieve, to push ourself beyond our limit and <a href="https://www.linkedin.com/in/kris-sankaran-01956b17/" target="_blank">Prof. Kris Sankaran</a>
-    Professor of Statistics at University of Wisconsin-Madison for making the intricacies of Machine Learning algorithms plain to our eyes. You made
+    daring us to achieve, to push ourselves beyond our limit and <a href="https://www.linkedin.com/in/kris-sankaran-01956b17/" target="_blank">Prof. Kris Sankaran</a>
+    Professor of Statistics at the University of Wisconsin-Madison for making the intricacies of Machine Learning algorithms plain to our eyes. You made
     DSN Bootcamp 2021 a truly amazing learning experience. We the finalist of DSN Bootcamp Finalist truly thank you.
 <p>
     
