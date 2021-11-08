@@ -66,8 +66,8 @@
 <hr></hr>
 
 <p>
-    A special thanks to <a href="https://www.linkedin.com/in/sgodaibo/">Mr. Stephen Odaibo</a> founder of RETINA-AI for his 
-    daring us to achieve, to push ourself beyond our limit and <a href="https://www.linkedin.com/in/kris-sankaran-01956b17/">Prof. Kris Sankaran</a>
+    A special thanks to <a href="https://www.linkedin.com/in/sgodaibo/" target="_blank">Mr. Stephen Odaibo</a> founder of RETINA-AI for his 
+    daring us to achieve, to push ourself beyond our limit and <a href="https://www.linkedin.com/in/kris-sankaran-01956b17/" target="_blank">Prof. Kris Sankaran</a>
     Porfessor of Statistics at University of Wisconsis-Madison for making the intricacies of Machine Learning algorithms plain to our eyes. You made
     DSN Bootcamp 2021 a truly amazing learning experience. We the finalist of DSN Bootcamp Finalist truly thank you.
 <p>
