@@ -73,6 +73,7 @@
     DSN Bootcamp 2021 a truly amazing learning experience. We the finalist of DSN Bootcamp Finalist truly thank you.
 <p>
     
-<p>Add your appreciation for these amazing teachers below <b>(Only for contributors!</b></p>
+<p>Add your appreciation for these amazing teachers below <b>(Only for contributors!</b>)</p>
+<hr></hr>
     
  
