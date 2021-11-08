@@ -3,7 +3,7 @@
 
 
 <ul>
-    <li>Ensure that your own version implements at least 80% of the original version functionality</li>
+    <li>Ensure that your version implements at least 80% of the original version functionality</li>
     <li>Make your code as efficient as you can possibly make it, and learn as you watch others make it more efficient than you can!</li>
     <li>Do not use any functionality from the module you are trying to implement from </li>
 </ul>
@@ -11,13 +11,13 @@
 <h3>Here is how it works?</h3>
 <ol>
     <li>
-        Upload your own implementation of an exisiting module that you think you are capable of implementing. 
-        Note: it can be anything e.g it can something as simple as np.mean or as complex as a sklearn.LogisticRegression
+        Upload your implementation of an existing module that you think you are capable of implementing. 
+        Note: it can be anything e.g it can be something as simple as np.mean or as complex as a sklearn.LogisticRegression
         or Neural Network if you are daring. This is to ensure everyone on any skill level can participate
     </li>
     <li>
         Provide a short description of the function you are implementing and state
-        the original source
+        the source
    </li>
     <li>
         State the limitation of your implementation against the original implementation i.e what functionality that is in the 
