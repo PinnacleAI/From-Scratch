@@ -11,6 +11,7 @@ from sklearn.model_selection import train_test_split as train_test_split_sklearn
 class LogicalErrorDetectedHere(ValueError):
     pass
 
+
 # End declaration
 #################################################################
 
@@ -38,7 +39,7 @@ def _set_unpassed_arg_to_implied_value(passed_arg, n_samples, subset='test'):
         _fraction_should_not_be_greater_or_less_than_one_and_zero(passed_arg, n_samples, subset=subset)
         unpassed_arg = 1.0 - passed_arg
     elif isinstance(passed_arg, int):
-        _test_train_samples_should_not_be_greater_or_less_than_total_sample_and_zero(passed_arg, n_samples, 
+        _test_train_samples_should_not_be_greater_or_less_than_total_sample_and_zero(passed_arg, n_samples,
                                                                                      subset=subset)
         unpassed_arg = n_samples - passed_arg
     else:
@@ -169,7 +170,7 @@ def train_test_split(*arrays, test_size=None, train_size=None, random_state=None
 
         # if train_size and test_size are both float 
         # ensure that their summed proportion do not exceed 1.0
-        
+
         def _check_total_range(total_sample, n_sample):
             if total_sample > n_sample:
                 raise ValueError(f"The sum of test_size and train_size = {total_sample} should be smaller "
@@ -262,13 +263,8 @@ class TrainTestSplitErrorTest(unittest.TestCase):
         self.assertEquals(err_message_custom, err_message_source)
 
     def test_passed_array_type_should_also_be_return(self):
-        array = [
-            [1, 2, 3, 4, 5],
-            [6, 7, 8, 9, 10],
-            [11, 12, 13, 14, 15],
-            [16, 17, 18, 19, 20],
-            [21, 22, 23, 24, 25]
-        ]
+
+        array = np.random.randint(1, 1000, size=(1000, 100))
         array_df = pd.DataFrame(array)
         array_np = np.array(array)
 
