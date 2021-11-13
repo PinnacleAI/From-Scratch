@@ -2,7 +2,23 @@ import unittest
 import numpy as np
 import pandas as pd
 
+from sklearn_from_scratch.base import BaseTransformer
 from sklearn.preprocessing import StandardScaler as StandardScalerSklearn
+
+
+"""
+AUTHOR: Samuel Nkopuruk E.
+LinkedIn:  www.linkedin.com/samuel
+
+This is an implementation of StandardScaler class from sklearn_from_scratch.preprocessing module
+
+LIMITATION
+1) partial_fit method hasn't yet been implemented, haven't gotten around to learning 
+the maths needed to implement that.
+
+2) Unable to scale a dataset using sample_weights
+
+"""
 
 
 ################################################################
@@ -54,8 +70,9 @@ def _check_if_instance_is_fitted(is_fitted):
 #################################################################
 
 
-class StandardScaler:
+class StandardScaler(BaseTransformer):
     def __init__(self, *, copy=True, with_mean=True, with_std=True):
+        super(StandardScaler, self).__init__()
         self.copy = copy
         self.with_mean = with_mean
         self.with_std = with_std

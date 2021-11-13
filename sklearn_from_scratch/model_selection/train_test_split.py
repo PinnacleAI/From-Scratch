@@ -1,8 +1,22 @@
 import unittest
 import numpy as np
 import pandas as pd
+
 from collections import Counter
 from sklearn.model_selection import train_test_split as train_test_split_sklearn
+
+
+"""
+AUTHOR: Samuel Nkopuruk E.
+LinkedIn:  www.linkedin.com/samuel
+
+This is an implementation of train_test_split function from sklearn_from_scratch.model_selection module
+
+LIMITATION
+1) partial_fit method hasn't yet been implemented, haven't gotten around to learning 
+the maths needed to implement that.
+
+"""
 
 
 ################################################################
