@@ -8,7 +8,7 @@ from sklearn.preprocessing import StandardScaler as StandardScalerSklearn
 
 """
 AUTHOR: Samuel Nkopuruk E.
-LinkedIn:  www.linkedin.com/samuel
+LinkedIn:  https://www.linkedin.com/in/samuel-effiong-778b23154/
 
 This is an implementation of StandardScaler class from sklearn_from_scratch.preprocessing module
 

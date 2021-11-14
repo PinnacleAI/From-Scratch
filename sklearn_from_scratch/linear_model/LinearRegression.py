@@ -7,6 +7,18 @@ from sklearn_from_scratch.base import AbstractClassPredictors
 from sklearn.linear_model import LinearRegression as LinearRegressionSklearn
 
 
+
+"""
+AUTHOR: Samuel Nkopuruk E.
+LinkedIn:  https://www.linkedin.com/in/samuel-effiong-778b23154/
+
+This is an implementation of LinearRegression class from sklearn_from_scratch.linear_model module
+
+LIMITATION
+1) fitting the model using information from the sample_weight hasn't yet been implemented.
+
+"""
+
 ################################################################
 # default Errors subclass will be created here if any
 

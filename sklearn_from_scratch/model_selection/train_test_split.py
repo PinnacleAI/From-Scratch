@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split as train_test_split_sklearn
 
 """
 AUTHOR: Samuel Nkopuruk E.
-LinkedIn:  www.linkedin.com/samuel
+LinkedIn:  https://www.linkedin.com/in/samuel-effiong-778b23154/
 
 This is an implementation of train_test_split function from sklearn_from_scratch.model_selection module
 
