@@ -3,7 +3,7 @@
 
 
 <ul>
-    <li>Ensure that your version implements at least 80% of the source functionality</li>
+    <li>Ensure that your version implements at least 80% of the original functionality</li>
     <li>Make your code as efficient as you can make it, and learn as you watch others make it more efficient than you can!</li>
     <li>Do not use any functionality from the module you are trying to implement from </li>
 </ul>
@@ -71,8 +71,8 @@
     DSN Bootcamp 2021 a truly amazing learning experience. We the finalist of DSN Bootcamp Finalist truly thank you.
 <p>
     
-<p>Add your appreciation for these amazing teachers below <b>(Only for contributors!</b>)</p>
-<hr></hr>
+<h3>Contributors:</h3>
+<hr>
 
     
  

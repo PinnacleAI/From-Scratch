@@ -89,7 +89,7 @@ class LinearRegression(AbstractClassPredictors):
         y = y.ravel()
 
         # save the number of features present in the dataset
-        # for validation during prediction
+        # for validation during prediction. i.e. the same no of feature is used during prediction
         self.__n_features = X.shape[1]
 
         if len(y) != len(X):
@@ -105,6 +105,7 @@ class LinearRegression(AbstractClassPredictors):
         self._theta = np.linalg.inv(X.T.dot(X)).dot(X.T).dot(y)
 
         if self.fit_intercept:
+            # the first value in self._theta is the param learned on the intercept
             self.coef_ = self._theta[1:].T.ravel()
         else:
             self.coef_ = self._theta.T.ravel()
@@ -112,6 +113,7 @@ class LinearRegression(AbstractClassPredictors):
         self.__is_fitted = True
 
     def predict(self, X) -> np.ndarray:
+
         original_X = X
 
         if not self.__is_fitted:
@@ -135,7 +137,6 @@ class LinearRegression(AbstractClassPredictors):
         return predict.ravel()
 
     def get_params(self):
-
         return {'copy_X': self.copy_X, 'fit_intercept': self.fit_intercept,
                 'n_jobs': self.n_jobs, 'normalize': self.normalize, 'positive': self.positive}
 
@@ -146,6 +147,7 @@ class LinearRegression(AbstractClassPredictors):
             raise TypeError(f"Expected sequence or array-like, got {type(y)}")
 
         # check to ensure y is in the proper format
+        # if it isn't convert to np.ndarray
         if isinstance(y, list):
             y = np.array(y)
         elif isinstance(y, (pd.Series, pd.DataFrame)):
@@ -167,6 +169,11 @@ class LinearRegression(AbstractClassPredictors):
         return "LinearRegression()"
 
 
+######################################## TEST CASES #################################################
+# In most case the name of the test are descriptive enough to know what they test for
+# a short description will be provided in cases they are not
+
+# the shape of dataset that will be generated throughout the tests
 _size = (50000, 50)
 
 
@@ -184,7 +191,7 @@ class LinearRegressionTest(unittest.TestCase):
 
         self.assertDictEqual(reg.get_params(), reg_source.get_params())
 
-    def test_check_making_prediction_without_fitting_model(self):
+    def test_making_prediction_without_fitting_model(self):
         x = np.random.randint(1, 100, size=_size)
         y = np.random.randint(1, 5, size=_size[0])
 
@@ -197,7 +204,7 @@ class LinearRegressionTest(unittest.TestCase):
         else:
             self.assertTrue(False)
 
-    def test_fitting_with_array_of_str(self):
+    def test_fitting_with_array_of_str_instead_of_numericals(self):
         x = [['love', 'you', 'dad']]
         y = np.random.randint(1, 5, size=3)
 
@@ -216,7 +223,7 @@ class LinearRegressionTest(unittest.TestCase):
 
         self.assertEqual(err_message, err_message_source)
 
-    def test_check_if_linear_regression_working_properly(self):
+    def test_if_linear_regression_fits_the_data_without_raising_error(self):
         x = np.random.randint(1, 10, size=_size)
         y = np.random.randint(1, 5, size=_size[0])
 
@@ -228,7 +235,7 @@ class LinearRegressionTest(unittest.TestCase):
         else:
             self.assertTrue(True)
 
-    def test_check_model_result_with_fit_intercept_True(self):
+    def test_if_model_coef_is_equal_to_sklearn_coef_with_fit_intercept_True(self):
         x = np.random.randint(1, 100, size=_size)
         y = np.random.randint(1, 5, size=_size[0])
 
@@ -240,7 +247,7 @@ class LinearRegressionTest(unittest.TestCase):
 
         np.testing.assert_almost_equal(reg.coef_, reg_source.coef_)
 
-    def test_check_model_result_with_fit_intercept_False(self):
+    def test_if_model_coef_is_equal_to_sklearn_coef_with_fit_intercept_False(self):
         x = np.random.randint(1, 100, size=_size)
         y = np.random.randint(1, 5, size=_size[0])
 
@@ -253,7 +260,7 @@ class LinearRegressionTest(unittest.TestCase):
 
         np.testing.assert_almost_equal(reg.coef_, reg_source.coef_)
 
-    def test_check_model_predictions_with_fit_intercept_True(self):
+    def test_checks_model_predictions_with_fit_intercept_True(self):
         x = np.random.randint(1, 100, size=_size)
         y = np.random.randint(1, 5, size=_size[0])
 
@@ -274,7 +281,7 @@ class LinearRegressionTest(unittest.TestCase):
         np.testing.assert_almost_equal(pred_train, pred_train_source)
         np.testing.assert_almost_equal(pred_test, pred_test_source)
 
-    def test_check_model_predictions_with_fit_intercept_False(self):
+    def test_checks_model_predictions_with_fit_intercept_False(self):
         x = np.random.randint(1, 100, size=_size)
         y = np.random.randint(1, 5, size=_size[0])
 

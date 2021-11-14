@@ -261,7 +261,10 @@ def train_test_split(*arrays, test_size=None, train_size=None, random_state=None
     return *train_dataset, *test_dataset
 
 
-# create your test suite here, if this script is executed directly
+######################################## TEST CASES #################################################
+# In most case the name of the test are descriptive enough to know what they test for
+# a short description will be provided in cases they are not
+
 class TrainTestSplitErrorTest(unittest.TestCase):
     def test_empty_function_call_should_give_the_same_error(self):
         try:

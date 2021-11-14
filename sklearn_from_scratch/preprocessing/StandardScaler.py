@@ -179,6 +179,10 @@ class StandardScaler(AbstractClassTransformers):
         return "StandardScaler()"
 
 
+######################################## TEST CASES #################################################
+# In most case the name of the test are descriptive enough to know what they test for
+# a short description will be provided in cases they are not
+
 class StandardScalerTest(unittest.TestCase):
 
     def test_instantiating_class_without_any_argument(self):
