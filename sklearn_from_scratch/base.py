@@ -1,8 +1,8 @@
 
-from abc import ABCMeta, abstractmethod, ABC
+from abc import ABCMeta, abstractmethod
 
 
-class BasePredictor(metaclass=ABCMeta):
+class AbstractClassPredictors(metaclass=ABCMeta):
 
     @abstractmethod
     def fit(self, X, y):
@@ -13,11 +13,15 @@ class BasePredictor(metaclass=ABCMeta):
         raise NotImplementedError("This method should not be called directly")
 
     @abstractmethod
+    def score(self, X, y, sample_weight=None):
+        raise NotImplementedError("This method should not be called directly")
+
+    @abstractmethod
     def get_params(self):
         raise NotImplementedError("This method should not be called directly")
 
 
-class BaseTransformer(metaclass=ABCMeta):
+class AbstractClassTransformers(metaclass=ABCMeta):
 
     @abstractmethod
     def fit(self, X, y=None):

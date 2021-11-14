@@ -2,7 +2,7 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from sklearn_from_scratch.base import BaseTransformer
+from sklearn_from_scratch.base import AbstractClassTransformers
 from sklearn.preprocessing import StandardScaler as StandardScalerSklearn
 
 
@@ -26,7 +26,6 @@ the maths needed to implement that.
 
 class NotFittedError(ValueError):
     pass
-
 
 ################################################################
 
@@ -70,7 +69,7 @@ def _check_if_instance_is_fitted(is_fitted):
 #################################################################
 
 
-class StandardScaler(BaseTransformer):
+class StandardScaler(AbstractClassTransformers):
     def __init__(self, *, copy=True, with_mean=True, with_std=True):
         super(StandardScaler, self).__init__()
         self.copy = copy

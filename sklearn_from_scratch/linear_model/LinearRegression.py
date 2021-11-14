@@ -3,8 +3,17 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from sklearn_from_scratch.base import BasePredictor
+from sklearn_from_scratch.base import AbstractClassPredictors
 from sklearn.linear_model import LinearRegression as LinearRegressionSklearn
+
+
+################################################################
+# default Errors subclass will be created here if any
+
+class NotFittedError(ValueError):
+    pass
+
+################################################################
 
 
 def _check_if_arg_is_in_supported_format(passed_arg):
@@ -26,10 +35,17 @@ def _convert_arg_to_numpy_arrays(passed_arg) -> np.ndarray:
     elif isinstance(passed_arg, (pd.Series, pd.DataFrame)):
         passed_arg = passed_arg.values
 
+    # if the type of the values in the array is not numeric
+    try:
+        passed_arg.astype(int)
+    except ValueError:
+        raise ValueError("Unable to convert array of bytes/strings into decimal numbers with dtype"
+                         "='numeric'")
+
     return passed_arg
 
 
-class LinearRegression(BasePredictor):
+class LinearRegression(AbstractClassPredictors):
     def __init__(self, fit_intercept=True, normalize=False, copy_X=True, n_jobs=None, positive=False):
         """
         Check the sklearn.linear_model.LinearRegression docs for specifications on the parameters.
@@ -47,6 +63,7 @@ class LinearRegression(BasePredictor):
         self.copy_X = copy_X
         self.n_jobs = n_jobs
         self.positive = positive
+        self.__is_fitted = False
 
     def fit(self, X, y):
         """
@@ -85,10 +102,21 @@ class LinearRegression(BasePredictor):
             X = np.c_[np.ones((len(X), 1)), X]
 
         # calculate the best params (theta) using normal equation
-        self._theta = np.linalg.inv(X.T.dot(X)).dot(X.T).dot()
+        self._theta = np.linalg.inv(X.T.dot(X)).dot(X.T).dot(y)
+
+        if self.fit_intercept:
+            self.coef_ = self._theta[1:].T.ravel()
+        else:
+            self.coef_ = self._theta.T.ravel()
+
+        self.__is_fitted = True
 
     def predict(self, X) -> np.ndarray:
         original_X = X
+
+        if not self.__is_fitted:
+            raise NotFittedError("This LinearRegression instance is not fitted yet, Call 'fit'"
+                                 " with appropriate arguments before using this estimator")
 
         # perform validation on the X param
         _check_if_arg_is_in_supported_format(X)
@@ -104,8 +132,202 @@ class LinearRegression(BasePredictor):
 
         predict = X.dot(self._theta)
 
-        return predict
+        return predict.ravel()
 
     def get_params(self):
-        return {'fit_intercept': self.fit_intercept, 'normalize': self.normalize,
-                'copy_X': self.copy_X, 'n_jobs': self.n_jobs, 'positive': self.positive}
+
+        return {'copy_X': self.copy_X, 'fit_intercept': self.fit_intercept,
+                'n_jobs': self.n_jobs, 'normalize': self.normalize, 'positive': self.positive}
+
+    def score(self, X, y, sample_weight=None):
+        pred = self.predict(X).ravel()
+
+        if not isinstance(y, (list, pd.Series, pd.DataFrame, np.ndarray)):
+            raise TypeError(f"Expected sequence or array-like, got {type(y)}")
+
+        # check to ensure y is in the proper format
+        if isinstance(y, list):
+            y = np.array(y)
+        elif isinstance(y, (pd.Series, pd.DataFrame)):
+            y = y.values
+
+        y = y.ravel()
+
+        # The score values is calculated using coefficient of determination (1 - u / v)
+        # check sklearn.linear_model LinearRegression docs for more details
+
+        u = ((y - pred) ** 2).sum()
+        v = ((y - y.mean()) ** 2).sum()
+
+        coef_deter = 1 - (u / v)
+
+        return coef_deter
+
+    def __repr__(self):
+        return "LinearRegression()"
+
+
+_size = (50000, 50)
+
+
+class LinearRegressionTest(unittest.TestCase):
+
+    def test_empty_function_call(self):
+        reg = LinearRegression()
+        reg_source = LinearRegressionSklearn()
+
+        self.assertEquals(str(reg), str(reg_source))
+
+    def test_get_params_function(self):
+        reg = LinearRegression()
+        reg_source = LinearRegressionSklearn()
+
+        self.assertDictEqual(reg.get_params(), reg_source.get_params())
+
+    def test_check_making_prediction_without_fitting_model(self):
+        x = np.random.randint(1, 100, size=_size)
+        y = np.random.randint(1, 5, size=_size[0])
+
+        reg = LinearRegression(fit_intercept=False)
+
+        try:
+            reg.predict(x)
+        except NotFittedError:
+            self.assertTrue(True)
+        else:
+            self.assertTrue(False)
+
+    def test_fitting_with_array_of_str(self):
+        x = [['love', 'you', 'dad']]
+        y = np.random.randint(1, 5, size=3)
+
+        reg = LinearRegression()
+        reg_source = LinearRegressionSklearn()
+
+        try:
+            reg.fit(x, y)
+        except ValueError as e:
+            err_message = str(e)
+
+        try:
+            reg_source.fit(x, y)
+        except ValueError as e:
+            err_message_source = str(e)
+
+        self.assertEqual(err_message, err_message_source)
+
+    def test_check_if_linear_regression_working_properly(self):
+        x = np.random.randint(1, 10, size=_size)
+        y = np.random.randint(1, 5, size=_size[0])
+
+        reg = LinearRegression()
+        try:
+            reg = reg.fit(x, y)
+        except Exception:
+            self.assertTrue(False)
+        else:
+            self.assertTrue(True)
+
+    def test_check_model_result_with_fit_intercept_True(self):
+        x = np.random.randint(1, 100, size=_size)
+        y = np.random.randint(1, 5, size=_size[0])
+
+        reg = LinearRegression()
+        reg_source = LinearRegressionSklearn()
+
+        reg.fit(x, y)
+        reg_source.fit(x, y)
+
+        np.testing.assert_almost_equal(reg.coef_, reg_source.coef_)
+
+    def test_check_model_result_with_fit_intercept_False(self):
+        x = np.random.randint(1, 100, size=_size)
+        y = np.random.randint(1, 5, size=_size[0])
+
+        reg = LinearRegression(fit_intercept=False)
+        reg_source = LinearRegressionSklearn(fit_intercept=False)
+
+        reg.fit(x, y)
+        reg_source.fit(x, y)
+
+
+        np.testing.assert_almost_equal(reg.coef_, reg_source.coef_)
+
+    def test_check_model_predictions_with_fit_intercept_True(self):
+        x = np.random.randint(1, 100, size=_size)
+        y = np.random.randint(1, 5, size=_size[0])
+
+        reg = LinearRegression()
+        reg_source = LinearRegressionSklearn()
+
+        reg.fit(x, y)
+        reg_source.fit(x, y)
+
+        x_new = np.random.randint(1, 100, size=_size)
+
+        pred_train = reg.predict(x)
+        pred_test = reg.predict(x_new)
+
+        pred_train_source = reg_source.predict(x)
+        pred_test_source = reg_source.predict(x_new)
+
+        np.testing.assert_almost_equal(pred_train, pred_train_source)
+        np.testing.assert_almost_equal(pred_test, pred_test_source)
+
+    def test_check_model_predictions_with_fit_intercept_False(self):
+        x = np.random.randint(1, 100, size=_size)
+        y = np.random.randint(1, 5, size=_size[0])
+
+        reg = LinearRegression(fit_intercept=False)
+        reg_source = LinearRegressionSklearn(fit_intercept=False)
+
+        reg.fit(x, y)
+        reg_source.fit(x, y)
+
+        x_new = np.random.randint(1, 100, size=_size)
+
+        pred_train = reg.predict(x)
+        pred_test = reg.predict(x_new)
+
+        pred_train_source = reg_source.predict(x)
+        pred_test_source = reg_source.predict(x_new)
+
+        np.testing.assert_almost_equal(pred_train, pred_train_source)
+        np.testing.assert_almost_equal(pred_test, pred_test_source)
+
+    def test_ensures_the_score_function_works__output_correct_results_with_fit_intercept_True(self):
+        x = np.random.randint(1, 100, size=_size)
+        y = np.random.randint(1, 5, size=_size[0])
+
+        reg = LinearRegression()
+        reg_source = LinearRegressionSklearn()
+
+        reg.fit(x, y)
+        reg_source.fit(x, y)
+
+        train_score = reg.score(x, y)
+        train_score_source = reg_source.score(x, y)
+
+        np.testing.assert_almost_equal(train_score, train_score_source)
+
+    def test_ensures_the_score_function_works__output_correct_results_with_fit_intercept_False(self):
+        x = np.random.randint(1, 100, size=_size)
+        y = np.random.randint(1, 5, size=_size[0])
+
+        reg = LinearRegression(fit_intercept=False)
+        reg_source = LinearRegressionSklearn(fit_intercept=False)
+
+        reg.fit(x, y)
+        reg_source.fit(x, y)
+
+        a = reg.predict(x)
+        b = reg_source.predict(x)
+
+        train_score = reg.score(x, y)
+        train_score_source = reg_source.score(x, y)
+
+        np.testing.assert_almost_equal(train_score, train_score_source)
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=3)
