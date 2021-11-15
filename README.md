@@ -30,6 +30,7 @@
         Try as much as possible to contain your implementation in a single file. If not possible, all the files
         should be contained in a single folder and the name of the folder should be the name of the implementation.
     </li>
+    <li>Your code should contain your linkedin details to give others who wish to improve your implementation connect with you</li>
     <li><b>Comment your code!!!</b></li>
 </ol>
 
